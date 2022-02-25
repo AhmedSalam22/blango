@@ -17,7 +17,10 @@ class Comment(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey("content_type", "object_id")
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(
+      auto_now_add= True,
+      db_index= True
+    )
     modified_at = models.DateTimeField(auto_now=True)
   
     
@@ -30,7 +33,11 @@ class Post(models.Model):
   
   created_at = models.DateTimeField(auto_now_add=True)
   modified_at = models.DateTimeField(auto_now=True)
-  published_at = models.DateTimeField(blank=True, null=True)
+  published_at = models.DateTimeField(
+    blank=True,
+    null=True,
+    db_index= True
+  )
   title = models.TextField(max_length=100)
   slug = models.SlugField()
   summary = models.TextField(max_length=500)
