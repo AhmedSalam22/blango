@@ -57,6 +57,7 @@ class Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.staticfiles',
       'blog',
+      'blango_auth',
 
     # installed app 
       "crispy_forms",
@@ -108,7 +109,7 @@ class Dev(Configuration):
 #           'NAME': BASE_DIR / 'db.sqlite3',
 #       }
 #   }
-
+  AUTH_USER_MODEL = "blango_auth.User"
 
   # Password validation
   # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
