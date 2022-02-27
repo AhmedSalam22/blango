@@ -20,6 +20,9 @@
         <form method="post" action="{% url "login" %}">
         {% csrf_token %}
         {{ form|crispy }}
+        <p>
+            <a href="{% url "google_login" %}">Log in with Google</a>
+        </p>
         <button type="submit" class="btn btn-primary">Log In</button>
         <input type="hidden" name="next" value="{{ next }}">
         </form>
