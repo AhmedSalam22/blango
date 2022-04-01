@@ -71,7 +71,9 @@ class Dev(Configuration):
       "allauth.socialaccount",
       "allauth.socialaccount.providers.google",
       "rest_framework",
-      'rest_framework.authtoken'
+      'rest_framework.authtoken',
+      'drf_yasg',
+
 
   ]
 
@@ -183,6 +185,13 @@ class Dev(Configuration):
   ACCOUNT_EMAIL_REQUIRED = True
   ACCOUNT_USERNAME_REQUIRED = False
   ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+  SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
+    }
 
   LOGGING = {
     "version": 1,
